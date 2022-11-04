@@ -29,7 +29,7 @@ export class Warrior {
 
   public static async getWarrior(id: string): Promise<Warrior | null> {
     const sql =
-      'SELECT `id`, `name`, `power`, `protection`, `strength`, `agility` FROM `warrior` WHERE `id` = :id';
+      'SELECT `id`, `name`, `power`, `protection`, `strength`, `agility` FROM `warriors` WHERE `id` = :id';
 
     const [result] = (await pool.execute(sql, {
       id,
@@ -39,7 +39,7 @@ export class Warrior {
   }
 
   public static async getAllName(): Promise<WarriorName[] | null> {
-    const sql = 'SELECT `id`, `name`, `strength` FROM `warrior` WHERE 1';
+    const sql = 'SELECT `id`, `name`, `strength` FROM `warriors` WHERE 1';
 
     const [result] = (await pool.execute(sql)) as WarriorNameResults;
 
@@ -52,7 +52,7 @@ export class Warrior {
     }
 
     let sql =
-      'INSERT INTO `warrior`(`id`, `name`, `power`, `protection`, `strength`, `agility`) VALUES (:id, :name, :power, :protection, :strength, :agility)';
+      'INSERT INTO `warriors`(`id`, `name`, `power`, `protection`, `strength`, `agility`) VALUES (:id, :name, :power, :protection, :strength, :agility)';
 
     await pool.execute(sql, {
       id: this.id,
@@ -74,7 +74,7 @@ export class Warrior {
 
   static async getWinners(): Promise<Winners[]> {
     const sql =
-      'SELECT `warrior`.`name`, `winners`.`victories` FROM winners LEFT JOIN `warrior` ON `winners`.`id` = `warrior`.`id` ORDER BY `winners`.`victories` DESC , `warrior`.`name` ASC LIMIT 10';
+      'SELECT `warriors`.`name`, `winners`.`victories` FROM winners LEFT JOIN `warriors` ON `winners`.`id` = `warriors`.`id` ORDER BY `winners`.`victories` DESC , `warriors`.`name` ASC LIMIT 10';
 
     const [results] = (await pool.execute(sql)) as WinnersResults;
 
@@ -88,7 +88,7 @@ export class Warrior {
   }
 
   static async checkUniqueName(name: string): Promise<boolean> {
-    const sql = 'SELECT `name` FROM `warrior` WHERE `name` LIKE :name';
+    const sql = 'SELECT `name` FROM `warriors` WHERE `name` LIKE :name';
 
     const [results] = (await pool.execute(sql, { name })) as WarriorNameResults;
 

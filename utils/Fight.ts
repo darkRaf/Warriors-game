@@ -31,7 +31,7 @@ export class Fight {
           this.defender.id,
           'defense',
           this.defender.hp,
-          `${this.defender.name} obronił się i nie stracił życia. Pozostało: ${this.defender.hp}`
+          `${this.defender.name} obronił się przed atakiem: Życie: ${this.defender.hp}`
         );
       }
 
@@ -52,7 +52,7 @@ export class Fight {
             this.defender.id,
             'defense',
             this.defender.hp,
-            `${this.defender.name} traci część życia. Pozostało: ${this.defender.hp}`
+            `${this.defender.name} broni się przed atakiem i ponosi obrażenia. Życie: ${this.defender.hp}`
           );
         }
       } else {
@@ -62,15 +62,15 @@ export class Fight {
           this.defender.id,
           'defense',
           this.defender.hp,
-          `${this.defender.name} traci część życia. Pozostało: ${this.defender.hp}`
+          `${this.defender.name} broni się przed atakiem i ponosi obrażenia. Życie: ${this.defender.hp}`
         );
       }
 
       if (this.defender.hp <= 0) {
         this.next = false;
-        this.addLog(this.defender.id,'dea' , this.defender.hp, `${this.defender.name} ginie!!!.`);
+        this.addLog(this.defender.id,'dea' , this.defender.hp, `${this.defender.name} ginie w walce!!!`);
 
-        this.addLog(this.attacker.id,'winn', this.attacker.hp, `${this.attacker.name} wygrywa!!!.`);
+        this.addLog(this.attacker.id,'winn', this.attacker.hp, `${this.attacker.name} wygrywa pojedynek!!!.`);
         await this.attacker.addVictory();
       } else {
         attackFirst === 1 ? (attackFirst = 2) : (attackFirst = 1);
