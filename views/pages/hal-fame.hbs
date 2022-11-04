@@ -1,0 +1,21 @@
+<h1>Sala sław</h1>
+<div class="container-hal">
+  <a href="/" class="single-left">&#8249;</a>
+  <div class="section-winner-title">
+    <span>Miejsce</span>
+    <span>Wojownik</span>
+    <span>Zwycięstwa</span>
+  </div>
+
+  {{#each winners}}
+
+  <div class="section-winner">
+    <span>{{inc @index}}.</span>
+    <span>{{name}}</span>
+    <span>{{victories}}</span>
+  </div>
+
+  {{/each}}
+
+</div>
+<script src="/js/winners.js"></script>

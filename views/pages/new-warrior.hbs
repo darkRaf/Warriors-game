@@ -1,0 +1,55 @@
+<h1>Parametry nowego wojonika</h1>
+<form action='/warrior' method='POST' class='form-new-warrior'>
+  <a href="/" class="single-left">&#8249;</a>
+
+  {{#if addWarrior}}
+    <p class="info-success">Nowy wojownik dodany do bazy.</p>
+  {{/if}}
+
+  <div class='section-box section-name'>
+    <img src='/img/warrior.png' alt='warrior viking face' />
+    <div class='section-input'>
+      <label for=''>Nazwa:</label>
+      <input type='text' class='warrior-name' name='name' maxlength="20" autofocus/>
+    </div>
+  </div>
+
+  <p>Do dyspozycji masz w sumie 10 punktów, które musisz rozdysponować w poniższych polach.</p>
+
+  <div class="section-box-in-line">
+    <div class='section-box section-power'>
+      <img src='/img/arm-power.png' alt='strong arm' />
+      <div class='section-input'>
+        <label for=''>Siła:</label>
+        <input type='number' min='0' max='10' step='1' class='warrior-num' name='power' />
+      </div>
+    </div>
+    <div class='section-box section-power'>
+      <img src='/img/shield.png' alt='viking shield' />
+      <div class='section-input'>
+        <label for=''>Obrona:</label>
+        <input type='number' min='0' max='10' step='1' class='warrior-num' name='protection' />
+      </div>
+    </div>
+  </div>
+
+  <div class="section-box-in-line">
+    <div class='section-box section-power'>
+      <img src='/img/strength.png' alt='running viking' />
+      <div class='section-input'>
+        <label for=''>Wytrzymałość:</label>
+        <input type='number' min='0' max='10' step='1' class='warrior-num' name='strength' />
+      </div>
+    </div>
+    <div class='section-box section-power'>
+      <img src='/img/snake.png' alt='snake' />
+      <div class='section-input'>
+        <label for=''>Zwinność:</label>
+        <input type='number' min='0' max='10' step='1' class='warrior-num' name='agility' />
+      </div>
+    </div>
+  </div>
+
+  <button type='submit' class='btn-save-warrior btn-disbled' disabled="true">Zapisz wojonika</button>
+</form>
+<script src="/js/new-warrior.js"></script>

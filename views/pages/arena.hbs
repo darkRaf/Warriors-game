@@ -1,0 +1,48 @@
+<div class="container-game">
+
+  <header class="header-arena">
+    <label for="">
+      Wojownik 1
+      <select name="" id="" class="select-warrior warrior1">
+        <option value="0" data-hp="0"></option>
+
+        {{#each warriors}}
+          <option value="{{id}}" data-hp="{{strength}}">{{name}}</option>
+        {{/each}}
+
+      </select>
+    </label>
+    <label for="">
+      Wojownik 2
+      <select name="" id="" class="select-warrior warrior2" disabled="true">
+        <option value="0" data-hp="0"></option>
+
+        {{#each warriors}}
+          <option value="{{id}}" data-hp="{{strength}}">{{name}}</option>
+        {{/each}}
+
+      </select>
+    </label>
+  </header>
+
+  <section class="arena">
+    <div class="log-game"></div>
+    <div class="container-arena">
+      <img src="/img/arena.jpg" alt="Arena do walk">
+      <canvas class="canvas-arena" width="800" height="200"></canvas>
+    </div>
+    <button class="btn-start-fight">Rozpocznij walkę</button>
+  </section>
+</div>
+
+{{!-- modal --}}
+<section class="modal">
+  <div class="bg-color"></div>
+  <div class="modal-box">
+    <a href="#" class="new-game">Nowa walka</a>
+    <a href="/warrior/new" class="new-warrior">Rejestracja wojownika</a>
+    <a href="/hal-of-fame" class="halOfFame">Sala Sław</button>
+  </div>
+</section>
+
+<script src='/js/arena.js' type="module"></script>
