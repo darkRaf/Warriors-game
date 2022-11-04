@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', () => {
-  // const textInfo = document.querySelector('.error-info'); //TODO: usunąć
   const inputName = document.querySelector('[name=name]');
   const inputs = document.querySelectorAll('.warrior-num');
   const btn = document.querySelector('.btn-save-warrior');
@@ -64,11 +63,6 @@ document.addEventListener('DOMContentLoaded', () => {
     checkCorrectness();
   };
 
-  // const btnClick = () => {  //TODO: usunąć
-  //   console.log('klik');
-  //   if (btn.disabled) addClass(textInfo, 'error-show')
-  // };
-
   const checkCorrectness = () => {
     let isCorrect = true;
 
@@ -85,6 +79,4 @@ document.addEventListener('DOMContentLoaded', () => {
   inputs.forEach(input => {
     input.addEventListener('change', checkSum);
   });
-  // btn.addEventListener('', btnClick); //TODO: usunąć
-
 });
