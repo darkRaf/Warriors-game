@@ -66,7 +66,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     elLogDispalay.append(p);
-    
+
     const { id, type, hp } = el.log;
     animateFight.moveWarrior(id, type, hp);
   };
@@ -74,6 +74,10 @@ document.addEventListener('DOMContentLoaded', () => {
   const displayLog = log => {
     log.forEach((el, index) => {
       setTimeout(() => oneLog(el), index * 1500);
+
+      if (log.length - 1 === index) {
+        
+      }
     });
   };
 

@@ -27,7 +27,6 @@ warriorRouter
     let addWarrior = false;
 
     const warrior = await Warrior.getWarrior(id);
-    console.log(warrior);
 
     if (warrior) {
       addWarrior = true;

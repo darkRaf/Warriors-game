@@ -36,13 +36,12 @@ export class Fight {
       }
 
       if (this.defender.protection + this.defender.agility > this.attacker.power) {
-        const tempProtection = this.defender.protection;
+        const tempProtection = (this.defender.protection < 0) ? 0 : this.defender.protection;
 
         this.defender.protection -= this.attacker.power;
 
-        if (this.defender.protection < 0) {
-          this.addLog(this.defender.id, 'defense', this.defender.hp, `${this.defender.name} traci tarczę.`);
-          this.defender.protection = 0;
+        if (this.defender.protection <= 0) {
+          this.addLog(this.defender.id, 'defense', this.defender.hp, `${this.defender.name} traci tarczę. ${this.defender.protection} - ${tempProtection}`);
         }
 
         if (this.attacker.power > tempProtection) {

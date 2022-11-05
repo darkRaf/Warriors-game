@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const inputName = document.querySelector('[name=name]');
   const inputs = document.querySelectorAll('.warrior-num');
   const btn = document.querySelector('.btn-save-warrior');
+  const stayedPoints = document.querySelector('.stayed-points');
 
   const addClass = (item, className) => item.classList.add(className);
   const removeClass = (item, className) => item.classList.remove(className);
@@ -47,6 +48,14 @@ document.addEventListener('DOMContentLoaded', () => {
     for (const input of inputs) if (Number(input.value) < 1) minOne = false;
 
     const sum = [...inputs].reduce((prev, curr) => prev + Number(curr.value ?? 0), 0);
+
+    const rest = 10 -sum;
+
+    if (rest < 0) stayedPoints.textContent = `Przekroczyłeś dozwoloną ilość 10 punktów.`;
+    if (rest === 0) stayedPoints.textContent = ` Wszystkie punkty rozdane.`;
+    if (rest === 1) stayedPoints.textContent = `Pozostał: ${rest} punkt.`;
+    if (rest > 1 && rest < 5) stayedPoints.textContent = `Pozostały: ${rest} punkty.`;
+    if (rest >= 5) stayedPoints.textContent = `Pozostało: ${rest} punktów.`;
 
     if (sum === 10 && minOne) {
       inputs.forEach(input => {

@@ -202,17 +202,18 @@ label {
   color: var(--font-color-master);
 }
 
-.btn-disbled {
-  color: rgb(136, 136, 136);
-  cursor: no-drop;
-}
-
+.btn-disbled,
 .btn-start-fight:hover,
 .btn-save-warrior:hover,
 .modal-box a:hover {
   background-color: rgb(255, 218, 150);
   box-shadow: var(--shadow-hover);
   cursor: pointer;
+}
+
+.btn-disbled {
+  color: rgb(136, 136, 136);
+  cursor: no-drop;
 }
 
 .btn-start-fight {
@@ -378,4 +379,13 @@ label {
 
 .error-page p {
   padding-top: 1rem;
+}
+
+.stayed-points {
+  margin-top: 1rem;
+  padding: 0.5rem;
+  text-align: center;
+  background-color: var(--background-color);
+  border: var(--border-master);
+  border-radius: 4px;
 }
